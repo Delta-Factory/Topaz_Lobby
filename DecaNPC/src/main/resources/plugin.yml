@@ -1,0 +1,7 @@
+main-class: delta.cion.DecaNPC
+
+plugin-id: "deca_npc"
+plugin-name: "Decadence NPC"
+command-prefix: "deca-npc"
+
+message-list: true
