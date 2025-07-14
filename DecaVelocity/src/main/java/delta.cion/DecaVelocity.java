@@ -4,13 +4,20 @@ import delta.cion.api.plugins.TopazPlugin;
 
 public class DecaVelocity extends TopazPlugin {
 
+	private static TopazPlugin instance;
+
+	public static TopazPlugin getInstance() {
+		return instance;
+	}
+
 	@Override
 	public void onEnable() {
-		getLogger().info("Plugin started!");
+		instance = this;
+		saveDefaultConfig();
 	}
 
 	@Override
 	public void onDisable() {
-		getLogger().info("Disabling plugin!");
+
 	}
 }
