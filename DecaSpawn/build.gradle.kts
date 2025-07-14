@@ -3,17 +3,20 @@ plugins {
 }
 
 group = "delta.cion"
-version = "1.0-SNAPSHOT"
+version = "0.0.0-DEV"
 
 repositories {
-    mavenCentral()
+	mavenCentral()
+	mavenLocal()
 }
 
-dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-}
+tasks {
+	build {
+		dependsOn(shadowJar)
+	}
 
-tasks.test {
-    useJUnitPlatform()
+	shadowJar {
+		mergeServiceFiles()
+		archiveClassifier.set("")
+	}
 }
