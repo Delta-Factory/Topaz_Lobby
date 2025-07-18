@@ -1,6 +1,7 @@
 package delta.cion;
 
 import delta.cion.api.plugins.TopazPlugin;
+import delta.cion.listeners.PlayerConnect;
 
 public class DecaSpawn extends TopazPlugin {
 
@@ -13,11 +14,7 @@ public class DecaSpawn extends TopazPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
-		getLogger().info("Plugin started!");
-	}
-
-	@Override
-	public void onDisable() {
-		getLogger().info("Disabling plugin!");
+		saveDefaultConfig();
+		getEventNode().addListener(new PlayerConnect());
 	}
 }

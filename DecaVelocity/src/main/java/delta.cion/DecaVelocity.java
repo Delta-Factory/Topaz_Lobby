@@ -1,6 +1,7 @@
 package delta.cion;
 
 import delta.cion.api.plugins.TopazPlugin;
+import delta.cion.command.Connect;
 import net.minestom.server.extras.velocity.VelocityProxy;
 
 public class DecaVelocity extends TopazPlugin {
@@ -18,7 +19,7 @@ public class DecaVelocity extends TopazPlugin {
 	private static void enableVelocity() {
 		String token = getVelocityToken();
 		if (token != null && !token.isBlank()) VelocityProxy.enable(token);
-		getInstance().getLogger().error("Velocity token is null!");
+		else getInstance().getLogger().error("Velocity token is null!");
 	}
 
 	@Override
@@ -27,6 +28,8 @@ public class DecaVelocity extends TopazPlugin {
 		saveDefaultConfig();
 
 		getLogger().info("Trying to start Velocity!");
+		getCommandNode().addToNode(new Connect());
+		getCommandNode().registerNode();
 		enableVelocity();
 	}
 
