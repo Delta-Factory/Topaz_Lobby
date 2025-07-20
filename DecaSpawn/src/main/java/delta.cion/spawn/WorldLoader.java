@@ -21,15 +21,16 @@ public class WorldLoader {
 	private static final File PLUGIN_DIR = DecaSpawn.getInstance().getPluginDir();
 	private static final Path WORLD_PATH = new File(PLUGIN_DIR, "world").toPath();;
 
+	private static final File LEVEL_DAT = new File(WORLD_PATH.toFile(), "level.dat");
+	private static final File REGIONS_DIR = new File(WORLD_PATH.toFile(), "region");
+
 	public WorldLoader() {
-		if (WORLD_PATH.toFile().isFile() || !WORLD_PATH.toFile().exists()) {
-			if (WORLD_PATH.toFile().mkdirs()) LOGGER.error("World directory not found but created");
-			DecaSpawn.getInstance().disable();
-		}
-		if (Objects.requireNonNull(WORLD_PATH.toFile().listFiles(isMCA())).length == 0) {
-			LOGGER.error("Spawn files not found!");
-			DecaSpawn.getInstance().disable();
-		}
+		if (!LEVEL_DAT.exists() || !LEVEL_DAT.isFile())
+			isFalse("level.dat is not exists");
+		if (!REGIONS_DIR.exists() || REGIONS_DIR.isFile())
+			isFalse("world/region dir is not exists");
+		if (Objects.requireNonNull(REGIONS_DIR.listFiles(isMCA())).length == 0)
+			isFalse("world/region is empty or not contains .mca files!");
 	}
 
 	public InstanceContainer getWorld() {
@@ -40,6 +41,11 @@ public class WorldLoader {
 	public Pos getSpawnPos() {
 		Integer[] cords = DecaSpawn.getInstance().getConfig().getIntList("spawn-cords");
 		return new Pos(cords[0], cords[1], cords[2]);
+	}
+
+	private void isFalse(String message) {
+		LOGGER.error(message);
+		DecaSpawn.getInstance().disable();
 	}
 
 	private static FileFilter isMCA() {
