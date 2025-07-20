@@ -28,8 +28,6 @@ public class PlayerConnect implements EventListener<AsyncPlayerConfigurationEven
 
 	@Override
 	public @NotNull Result run(@NotNull AsyncPlayerConfigurationEvent event) {
-		System.out.println("Lmao stupid cion");
-		LOGGER.info("EVENT DETECTED 1");
 		Player player = event.getPlayer();
 
 		SocketAddress playerAddress = player.getPlayerConnection().getRemoteAddress();

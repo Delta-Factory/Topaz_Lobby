@@ -32,16 +32,13 @@ public class WorldLoader {
 		}
 	}
 
-	public InstanceContainer getWorld() {;
-		CONTAINER.setChunkLoader(new AnvilLoader(WORLD_PATH));
-		return CONTAINER;
+	public InstanceContainer getWorld() {
+		this.CONTAINER.setChunkLoader(new AnvilLoader(WORLD_PATH));
+		return this.CONTAINER;
 	}
 
 	public Pos getSpawnPos() {
 		Integer[] cords = DecaSpawn.getInstance().getConfig().getIntList("spawn-cords");
-		LOGGER.info("{}", cords[0]);
-		LOGGER.info("{}", cords[1]);
-		LOGGER.info("{}", cords[2]);
 		return new Pos(cords[0], cords[1], cords[2]);
 	}
 
