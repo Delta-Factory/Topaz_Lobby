@@ -38,9 +38,8 @@ public class PlayerConnect implements EventListener<AsyncPlayerConfigurationEven
 
 		WorldLoader loader = new WorldLoader();
 		InstanceContainer world = loader.getWorld();
-		Pos spawn = loader.getSpawnPos();
+		Pos spawn = WorldLoader.getSpawnPos();
 		if (world == null) return isFalse(player, "World cant be load, lmao");
-		if (spawn == null) return isFalse(player, "Spawn cords cant be load, lmao");
 		player.setRespawnPoint(spawn);
 		event.setSpawningInstance(world);
 		return Result.SUCCESS;
