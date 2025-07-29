@@ -5,6 +5,7 @@
 # <= Main => #
 .idea
 .gradle
+test
 build
 gradle
 gradlew

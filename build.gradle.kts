@@ -16,6 +16,10 @@ allprojects {
         }
     }
 
+	tasks.withType<JavaCompile> {
+		options.encoding = "UTF-8"
+	}
+
     dependencies {
         compileOnly("net.minestom:minestom-snapshots:$minestomVersion")
         compileOnly("delta.cion.api:topaz_api:0.0.0-DEV")
