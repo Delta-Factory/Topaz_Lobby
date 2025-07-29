@@ -4,4 +4,5 @@
 
 rootProject.name = "Topaz_Lobby"
 
-include("DecaSpawn", "DecaNPC", "DecaVelocity")
+include("DecaSpawn", "DecaVelocity")
+include("BlockHandlers")
