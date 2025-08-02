@@ -2,7 +2,6 @@ package delta.cion.listeners;
 
 import net.minestom.server.event.EventListener;
 import net.minestom.server.event.player.PlayerBlockInteractEvent;
-import net.minestom.server.event.player.PlayerUseItemEvent;
 import net.minestom.server.instance.block.Block;
 import org.jetbrains.annotations.NotNull;
 

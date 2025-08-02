@@ -21,7 +21,7 @@ allprojects {
 	}
 
     dependencies {
-        compileOnly("net.minestom:minestom-snapshots:$minestomVersion")
+        compileOnly("net.minestom:minestom:$minestomVersion")
         compileOnly("delta.cion.api:topaz_api:0.0.0-DEV")
     }
 
